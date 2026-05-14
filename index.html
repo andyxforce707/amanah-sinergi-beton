@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amanah Sinergi Beton</title>
+    <title>ASB | Amanah Sinergi Beton</title>
     <!-- Alpine JS  -->
     <script src="//unpkg.com/alpinejs" defer></script>
 
     <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <!-- Font Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -70,8 +74,8 @@
     <div class="px-5 py-3 navbar w-full flex items-center justify-between gap-2 bg-linear-to-r from-slate-500 via-slate-400 to-slate-600 shadow-sm lg:px-20 xl:px-35">
       <h1 class="text-2xl flex gap-2 font-bold text-white items-center">
         <!-- <img src="icons/layout-fluid.png" class="size-6 -rotate-45" /> -->
-        <div class="flex size-10 items-center justify-center overflow-hidden rounded-md">
-          <img src="sinergi-products/asb1.jpg" class="size-20" />
+        <div class="flex items-center justify-center overflow-hidden">
+          <img src="sinergi-products/asb.png" class="size-10 invert" />
         </div>
         ASB
       </h1>
@@ -85,8 +89,8 @@
 
     <!-- Main Image -->
     <div class="main_image px-5 py-5 flex justify-between items-center h-50 bg-linear-to-r from-slate-200 via-slate-100 to-gray-100 xl:h-90 lg:px-20 xl:px-35 overflow-hidden">
-      <div class="flex left flex-col">
-        <h2 class="font-lighter text-slate-500 text-xl lg:text-2xl xl:text-5xl"><span class="text-red-500">A</span>manah <span class="text-red-500">S</span>inergi <span class="text-red-500">B</span>eton</h2>
+      <div class="flex left flex-col" data-aos="fade-down">
+        <h2 class="font-lighter text-slate-500 text-xl lg:text-2xl xl:text-5xl" data-aos="fade-right"><span class="text-red-500">A</span>manah <span class="text-red-500">S</span>inergi <span class="text-red-500">B</span>eton</h2>
         <p class="text-md text-slate-500">Ahlinya paving.</p>
         <span class="ms-2 text-xs text-red-500">est. 2026</span>
 
@@ -94,9 +98,10 @@
         <span class="italic text-slate-500 text-[11px] md:text-sm">Siap melayani pengiriman <span class="text-red-500 font-bold"> se-Jateng</span> dan <span class="text-red-500 font-bold">DIY.</span></span>
       </div>
 
-      <div class="flex left flex-col relative">
-        <img src="icons/layout-fluid.png" class="absolute hidden size-60 rotate-45 brightness-50 translate-y-10 translate-x-5 sm:flex" />
-        <img src="products/k13.png" class="relative hidden z-1 brightness-110 transition hover:-translate-y-10 delay-300 hover:rotate-10 hover:brightness-120 sm:flex sm:size-40 md:size-40 lg:size-60 xl:size-80" />
+      <div class="flex right flex-col self-start gap-1 sm:self-center items-center justify-center relative">
+        <img src="sinergi-products/asb.png" class="size-25 sm:size-30 sm:size-40 md:size-45 lg:size-50 xl:size-60 flex" data-aos="fade-left" />
+
+        <span class="text-black font-bold text-sm absolute translate-y-[225%] sm:text-md sm:translate-y-[400%]">SINERGI</span>
       </div>
     </div>
 
@@ -105,10 +110,11 @@
       <h1 class="text-xl text-red-400 font-semibold text-center mt-2">Produk Kami</h1>
 
       <div class="project_list grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 mt-7 md:gap-4">
-        <template x-for="product in products">
+        <template x-for="(product,index) in products">
           <div
             class="project_card relative z-2 p-1.5 flex flex-col bg-white shadow-md transition hover:bg-linear-to-t hover:from-red-100 hover:via-red-50 hover:to-white hover:border-b-2 border-b-white border-b-2 hover:border-b-red-400 group overflow-hidden group"
             :key="product.id"
+            :data-aos="index % 2 == 0 ? 'fade-right':'fade-left'"
           >
             <img :src="'sinergi-products/'+product.image" class="h-50 group-hover:scale-110 group-hover:-rotate-5 group-hover:-translate-y-5 group-hover:translate-x-5 transition relative z-2 rounded-sm" />
             <p
@@ -160,14 +166,14 @@
         <nav class="flex gap-2 text-slate-100">
           <a href="#" class="text-xs transition hover:underline hover:text-slate-200 cursor-pointer">instagram</a>
           <a href="#" class="text-xs transition hover:underline hover:text-slate-200 cursor-pointer">facebook</a>
-          <a href="https://wa.me/6282233447767?text=Halo, mau tanya info pavingnya dong!" target="_blank" class="text-xs transition hover:underline hover:text-slate-200 cursor-pointer">whatsapp</a>
+          <a href="https://wa.me/682233447767?text=Halo, mau tanya info pavingnya dong!" class="text-xs transition hover:underline hover:text-slate-200 cursor-pointer">whatsapp</a>
         </nav>
       </div>
     </footer>
 
     <!-- Absolute element -->
     <div class="fixed right-10 bottom-10 z-3">
-      <a href="https://wa.me/6282233447767?text=Halo, mau tanya info pavingnya dong!" target="_blank" title="Kirimkan pesan atau tanya-tanya langsung.">
+      <a href="https://wa.me/682233447767?text=Halo, mau tanya info pavingnya dong!" title="Kirimkan pesan atau tanya-tanya langsung.">
         <img src="icons/whatsapp.png" class="size-10 transition hover:brightness-110 animate-bounce" />
       </a>
     </div>
@@ -181,7 +187,7 @@
           </div>
 
           <div class="flex flex-col gap-4 py-2 px-5 md:flex-row sm:items-center md:items-start">
-            <img :src="'sinergi-products/'+data_product_detail[0].image" class="size-60 rounded-sm" />
+            <img :src="'sinergi-products/'+data_product_detail[0].image" class="size-60 rounded-sm invert" />
             <div class="flex flex-col detail_info text-md relative z-2">
               <p class="text-md text-slate-400">
                 <span x-text="data_product_detail[0].kode.toUpperCase()"></span> -
@@ -288,7 +294,7 @@
               mutu: '-',
               measure: 'm2',
               set: 22,
-              dimension: '21x10.5x6/8cm',
+              dimension: '21x21x6/8cm',
               desc: 'Seperti bata yg berukuran 2x  lipat yg mampu memberikan efek kesegaran seni ketika dipandang.',
             },
             {
@@ -611,6 +617,13 @@
             this.data_product_detail = data;
           },
         }));
+      });
+
+      // Animate on Scroll
+      AOS.init({
+        duration: 500,
+        once: true,
+        mirror: true,
       });
     </script>
   </body>
